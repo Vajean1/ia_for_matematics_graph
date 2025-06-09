@@ -6,7 +6,7 @@ import os
 class IAGeradoraDeGraficos:
     def __init__(self, model: str = "phi3:mini", 
                  api_url: str = "http://localhost:11434/api/generate",
-                 prompt_file: str = "prompt_template.json"):
+                 prompt_file: str = "json/prompt_template.json"):
         self.model = model
         self.api_url = api_url
         # Carrega o prompt do arquivo JSON no construction
@@ -57,7 +57,7 @@ class IAGeradoraDeGraficos:
             return None
     
     @staticmethod
-    def _salvar_codigo_em_json(self, pergunta: str, codigo: str, arquivo_json: str = "codes.json"):
+    def _salvar_codigo_em_json(self, pergunta: str, codigo: str, arquivo_json: str = "json/codes.json"):
         
         novo_registro = {
             "pergunta": pergunta,
@@ -114,8 +114,7 @@ if __name__ == "__main__":
     }
 
 
-    print("--- GERANDO GRÁFICO DE FUNÇÃO QUADRÁTICA ---")
-    pergunta_1 = "Gere o código para a função f(x) = -2*x**2 + 3*x + 5"
-    gerador_de_graficos.plotar_funcao(pergunta_1)
-    print("\n" + "="*50 + "\n")
+    print("--- GERANDO GRÁFICO ---")
+    pergunta = "Gere o código para a função f(x) = -2*x**2 + 3*x + 5"
+    gerador_de_graficos.plotar_funcao(pergunta)
 
