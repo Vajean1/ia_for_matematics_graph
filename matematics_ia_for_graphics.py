@@ -4,7 +4,7 @@ import os
 
 #Classe principal da para gerar gráficos usando IA
 class IAGeradoraDeGraficos:
-    def __init__(self, model: str = "phi3:mini", 
+    def __init__(self, model: str = "phi3", 
                  api_url: str = "http://localhost:11434/api/generate",
                  prompt_file: str = "json/prompt_template.json"):
         self.model = model
