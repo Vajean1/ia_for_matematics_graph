@@ -1,0 +1,34 @@
+[
+    {
+        "pergunta": "Gere o código para a função y = 2*x + 1 de -10 a 10",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Definir o intervalo de x\nx = np.linspace(-10, 10, 400)\n\n# Definir a função linear y = 2*x + 1\ny = 2 * x + 1\n\n# Configurar e plotar o gráfico\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = 2*x + 1')\nplt.title('Gráfico da Função Linear')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\n\n# Exibir o gráfico com plt.show()\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função y = 5 de -10 a 10",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(-10, 10, 400)\ny = np.full_like(x, 5)\n\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = 5', color='r')\nplt.title('Gráfico da Função Constante')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.ylim(0, 10)\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função f(x) = -2*x**2 + 3*x + 5",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Definir o intervalo de x\nx = np.linspace(-10, 10, 400) # Ajustar os limites conforme necessário para a função específica\ny = -2 * x**2 + 3 * x + 5\n\n# Configurar e plotar o gráfico\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='f(x) = -2*x^2 + 3*x + 5')\nplt.title('Gráfico da Função Quadrática')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função y = x**3 - 3*x de -3 a 3",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(-3, 3, 400)\ny = x**3 - 3*x\n\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = x**3 - 3*x')\nplt.title('Gráfico da Função Cúbica')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função y = cos(2*x) de -pi a pi",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Definir o intervalo de x\nx = np.linspace(-np.pi, np.pi, 400)\ny = np.cos(2*x)\n\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = cos(2*x)')\nplt.title('Gráfico da Função Coseno')\nplt.xlabel('Eixo X (radianos)')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função y = |2x + 1| de -4 a 3",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Definir o intervalo de x e calcular os valores correspondentes para y\nx = np.linspace(-4, 3, 400)\ny = np.abs(2*x + 1)\n\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = |2x + 1|')\nplt.title('Gráfico da Função Modular')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função y = 2**x de -5 a 5",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Definir o intervalo de x e calcular os valores correspondentes da função exponencial y = 2**x\nx = np.linspace(-5, 5, 400)\ny = 2**x\n\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = 2**x')\nplt.title('Gráfico da Função Exponencial')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.show()"
+    },
+    {
+        "pergunta": "Gere o código para a função y = log10(x) de 0.1 a 20",
+        "codigo_gerado": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Ajustar os valores do eixo x para incluir o ponto final em log10(x) que é igual ao próprio valor de x, pois a função log não pode ter zero como argumento.\nx = np.linspace(0.1, 20, 400)\ny = np.log10(x)\n\nplt.figure(figsize=(8, 6))\nplt.plot(x, y, label='y = log10(x)')\nplt.title('Gráfico da Função Logarítmica (base 10)')\nplt.xlabel('Eixo X')\nplt.ylabel('Eixo Y')\nplt.grid(True)\nplt.axhline(0, color='black', linewidth=0.5)\nplt.axvline(0, color='black', linewidth=0.5)\nplt.legend()\nplt.show()"
+    }
+]

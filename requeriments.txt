@@ -1,1 +1,1 @@
-import requests matplotlib numpy
+pip install requests matplotlib numpy

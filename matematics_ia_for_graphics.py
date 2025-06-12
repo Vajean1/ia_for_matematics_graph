@@ -2,7 +2,7 @@ import requests
 import json
 import os
 
-#Classe principal da para gerar gráficos usando IA
+#Classe principal da para gerar gráficos    usando IA
 class IAGeradoraDeGraficos:
     def __init__(self, model: str = "phi3", 
                  api_url: str = "http://localhost:11434/api/generate",
@@ -48,16 +48,16 @@ class IAGeradoraDeGraficos:
             response_json = response.json()
             codigo_gerado = response_json.get("response", "").strip()
             
-            print("✅ IA gerou o código com sucesso!")
+            print("Phi3 gerou o código com sucesso")
             return codigo_gerado
             
         except requests.exceptions.RequestException as e:
-            print(f"❌ Erro ao conectar com o Ollama: {e}")
-            print("   Por favor, verifique se o Ollama está rodando.")
+            print(f"Erro ao conectar com o Ollama: {e}")
+            print("Por favor, verifique se o Ollama está rodando.")
             return None
     
     @staticmethod
-    def _salvar_codigo_em_json(self, pergunta: str, codigo: str, arquivo_json: str = "json/codes.json"):
+    def _salvar_codigo_em_json(pergunta: str, codigo: str, arquivo_json: str = "json/codes.json"):
         
         novo_registro = {
             "pergunta": pergunta,
@@ -76,7 +76,7 @@ class IAGeradoraDeGraficos:
             with open(arquivo_json, 'w', encoding='utf-8') as f:
                 json.dump(dados, f, ensure_ascii=False, indent=4)
                 
-            print(f"✅ Código salvo com sucesso em '{arquivo_json}'!")
+            print(f"Código salvo com sucesso em '{arquivo_json}'!")
 
         except (IOError, json.JSONDecodeError) as e:
             print(f"Erro ao salvar o arquivo JSON: {e}")
@@ -85,17 +85,21 @@ class IAGeradoraDeGraficos:
     @staticmethod
     def _executar_codigo(codigo: str):
         if codigo:
-            print("\n--- Executando o Código Gerado ---")
+            print("\nExecutando o Código Gerado")
             try:
                 exec(codigo, {'plt': __import__('matplotlib.pyplot'), 'np': __import__('numpy')})
             except Exception as e:
-                print(f"❌ Erro ao executar o código gerado: {e}")
+                print(f"Erro ao executar o código gerado: {e}")
 
     def plotar_funcao(self, pergunta: str):
         codigo_gerado = self._gerar_codigo(pergunta)
-
-        if codigo_gerado:
-            self._executar_codigo(codigo_gerado)
+        
+        try:
+            if codigo_gerado:
+                self._salvar_codigo_em_json(pergunta, codigo_gerado)
+                self._executar_codigo(codigo_gerado)
+        except Exception as error:
+            print(error)
     
 
 if __name__ == "__main__":
@@ -114,7 +118,8 @@ if __name__ == "__main__":
     }
 
 
-    print("--- GERANDO GRÁFICO ---")
-    pergunta = "Gere o código para a função f(x) = -2*x**2 + 3*x + 5"
-    gerador_de_graficos.plotar_funcao(pergunta)
-
+    for k, v in perguntas.items():
+        print(f'Gerando a função {k}')
+        gerador_de_graficos.plotar_funcao(v)
+    
+    print('Todos os gráficos foram gerados!!!')
